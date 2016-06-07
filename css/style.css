@@ -1,184 +1,702 @@
-body,ul,h3,p{margin: 0;padding: 0;font: 12px/22px 'Microsoft YaHei', 'Helvetica', 'sans-serif';}
-i{display: inline-block;}
-.f-cb:after{content: '.';
-display: block;
-clear: both;
-height: 0;
-overflow: hidden;
-visibility: hidden;}
-@media screen and (max-width: 1250px){
-	.m-course .coursewrap{width: 980px;}
-	.m-course .list{ width: 734px; }
+body, ul, h3, p {
+    margin: 0;
+    padding: 0;
+    font: 12px/22px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
 }
-@media screen and (min-width: 1250px){
-	.m-course .list{width: 980px;}
-	.m-course .coursewrap{width: 1205px;}
+
+i {
+    display: inline-block;
 }
-.check{color:#21a557; text-decoration: none;}
-.m-noteInfo{background: #f3f3f3;font: 12px/22px 'Microsoft YaHei';height: 36px;line-height: 36px;}
-.m-noteInfo .wrap_note{width: 1205px;margin: 0 auto;}
-.m-noteInfo .wrap_note *{display: inline-block;}
-.m-noteInfo .wrap_note #clno{float: right;cursor: pointer;}
-.m-noteInfo .wrap_note #clno i{vertical-align: middle; width: 10px;height: 10px; 
-							background:url(../img/spirit.png) no-repeat -45px -1px;}
+
+.f-cb:after {
+    content: '.';
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+@media screen and (max-width: 1250px) {
+    .m-course .coursewrap {
+        width: 980px;
+    }
+
+    .m-course .list {
+        width: 734px;
+    }
+}
+
+@media screen and (min-width: 1250px) {
+    .m-course .list {
+        width: 980px;
+    }
+
+    .m-course .coursewrap {
+        width: 1205px;
+    }
+}
+
+.check {
+    color: #21a557;
+    text-decoration: none;
+}
+
+.m-noteInfo {
+    background: #f3f3f3;
+    font: 12px/22px 'Microsoft YaHei';
+    height: 36px;
+    line-height: 36px;
+}
+
+.m-noteInfo .wrap_note {
+    width: 1205px;
+    margin: 0 auto;
+}
+
+.m-noteInfo .wrap_note * {
+    display: inline-block;
+}
+
+.m-noteInfo .wrap_note #clno {
+    float: right;
+    cursor: pointer;
+}
+
+.m-noteInfo .wrap_note #clno i {
+    vertical-align: middle;
+    width: 10px;
+    height: 10px;
+    background: url(../img/spirit.png) no-repeat -45px -1px;
+}
+
 .m-head {
-	position: relative;
-	width: 1205px;margin: 0 auto;
-	height: 90px;
-	line-height: 90px;
-	font-size: 16px;
+    position: relative;
+    width: 1205px;
+    margin: 0 auto;
+    height: 90px;
+    line-height: 90px;
+    font-size: 16px;
 }
-.m-head div .ti{font-size: 22px;}
-.m-head div .ti i {display: inline-block;vertical-align: middle; width: 75px;height: 22px;
-				 background:url(../img/spirit.png) no-repeat -60px 0;}
-.m-head .sss{position: absolute;right: 0;top: 0;}
-.m-head input{background: #21a557;border-style: none;border-radius: 2px;cursor: pointer;
-			color: white;margin-left: 27px;margin-right: 10px;font-size: 16px;}
-.m-head input:hover{ background-color: #2fb556;}
-.m-head #foed {border: 1px solid #efefef;
+
+.m-head div .ti {
+    font-size: 22px;
+}
+
+.m-head div .ti i {
+    display: inline-block;
+    vertical-align: middle;
+    width: 75px;
+    height: 22px;
+    background: url(../img/spirit.png) no-repeat -60px 0;
+}
+
+.m-head .sss {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.m-head input {
+    background: #21a557;
+    border-style: none;
+    border-radius: 2px;
+    cursor: pointer;
+    color: white;
+    margin-left: 27px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.m-head input:hover {
+    background-color: #2fb556;
+}
+
+.m-head #foed {
+    border: 1px solid #efefef;
     border-radius: 2px;
     color: #333;
     display: inline-block;
-    font: 12px/19px "宋体","Arial","Helvetica","sans-serif";
+    font: 12px/19px "宋体", "Arial", "Helvetica", "sans-serif";
     height: 19px;
     margin-left: 27px;
-    margin-right: 10px;}
-.m-head #foed .line{color: #ccc;}
-.m-head #foed #cancel {color: #999;}
-.m-head #foed #cancel:hover{color:#21a557;text-decoration: underline;cursor: pointer;}
-.m-head .sss a{color:#000;margin-left:55px; text-decoration: none;}
-.m-head .sss a:hover{color:#21a557;}
-.m-head .sss a i{background: url(../img/spirit.png) 0 0;width: 20px;height: 20px;
-				display:inline-block;vertical-align: middle;}
-.m-head .sss a i:hover{background: url(../img/spirit.png) 0 -20px;}
+    margin-right: 10px;
+}
 
-.m-login{width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;left: 0;right: 0;}
-.m-login .lg-wrap{width: 388px;height: 258px;background: white;position: absolute;
-	top: 50%;left: 50%;margin: -144px 0 0 -194px;padding-top: 30px;}
-.m-login .lg-wrap i,#clv{position: absolute;top: 10px;right: 10px;cursor: pointer;display: inline-block;
-	         width: 15px;height: 15px;  background:url(../img/spirit.png) -60px -23px ; }
-.m-login .lg-wrap span {margin-left: 40px;margin-bottom: 15px;font: 18px/28px 'Microsoft YaHei', 'Helvetica', 'sans-serif';}
-.m-login .lg-wrap p{margin:0 0 0 40px;color: red;font:  12px/18px 'Microsoft YaHei', 'Helvetica', 'sans-serif';}
-.m-login .lg-wrap input{margin-left: 40px;margin-bottom: 15px; width: 295px;height: 45px;border: 1px solid #dfdfdf;box-sizing: border-box;
-		background: #fafafa;}
-.m-login .lg-wrap button{margin-left: 40px;margin-top: 15px; width: 295px;height: 48px;
-		background: url(../img/spirit.png) 0 -41px no-repeat;cursor: pointer;border: none;}
+.m-head #foed .line {
+    color: #ccc;
+}
 
-.m-slides{width:100%;height:460px;overflow:hidden;margin: auto;}
-.m-slides .imgwrap{position:relative;width:100%;height:460;}
-.m-slides .banner{/*display:none;*/float:left;width:100%;height:460px;}
-.m-slides .banner-0{background:url(../img/banner1.jpg);}
-.m-slides .banner-1{background:url(../img/banner2.jpg);}
-.m-slides .banner-2{background:url(../img/banner3.jpg);}
-.m-s {position: relative;}
-.m-nav .navswrap {position: absolute;bottom: 10px;text-align: center;width: 50px;left: 50%;}
-.m-nav .navswrap i{display: inline-block;height: 10px;width: 10px;border-radius: 50%;background: white;cursor: pointer;}
+.m-head #foed #cancel {
+    color: #999;
+}
 
-.m-intro {font-family: "Microsoft YaHei";margin: 90px auto 60px;width: 1270px;}
-.m-intro .intro{display: inline-block;width: 339px;margin: 0 35px; height: 177px; /*overflow: hidden;*/}
-.m-intro .intro img{float: left;margin:8px 20px 100px 0;}
-.m-intro .intro div{overflow: hidden;}
-.m-intro .intro div h2{margin-top: 0;font-weight: normal;}
-.m-intro .intro div p{font-size: 14px;color: #666;line-height: 24px;text-align: justify;}
-.m-intro .intro div a{color: #39a030;}
+.m-head #foed #cancel:hover {
+    color: #21a557;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.m-head .sss a {
+    color: #000;
+    margin-left: 55px;
+    text-decoration: none;
+}
+
+.m-head .sss a:hover {
+    color: #21a557;
+}
+
+.m-head .sss a i {
+    background: url(../img/spirit.png) 0 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.m-head .sss a i:hover {
+    background: url(../img/spirit.png) 0 -20px;
+}
+
+.m-login {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.m-login .lg-wrap {
+    width: 388px;
+    height: 258px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -144px 0 0 -194px;
+    padding-top: 30px;
+}
+
+.m-login .lg-wrap i, #clv {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../img/spirit.png) -60px -23px;
+}
+
+.m-login .lg-wrap span {
+    margin-left: 40px;
+    margin-bottom: 15px;
+    font: 18px/28px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+}
+
+.m-login .lg-wrap p {
+    margin: 0 0 0 40px;
+    color: red;
+    font: 12px/18px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+}
+
+.m-login .lg-wrap input {
+    margin-left: 40px;
+    margin-bottom: 15px;
+    width: 295px;
+    height: 45px;
+    border: 1px solid #dfdfdf;
+    box-sizing: border-box;
+    background: #fafafa;
+}
+
+.m-login .lg-wrap button {
+    margin-left: 40px;
+    margin-top: 15px;
+    width: 295px;
+    height: 48px;
+    background: url(../img/spirit.png) 0 -41px no-repeat;
+    cursor: pointer;
+    border: none;
+}
+
+.m-slides {
+    width: 100%;
+    height: 460px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.m-slides .imgwrap {
+    position: relative;
+    width: 100%;
+    height: 460;
+}
+
+.m-slides .banner { /*display:none;*/
+    float: left;
+    width: 100%;
+    height: 460px;
+}
+
+.m-slides .banner-0 {
+    background: url(../img/banner1.jpg);
+}
+
+.m-slides .banner-1 {
+    background: url(../img/banner2.jpg);
+}
+
+.m-slides .banner-2 {
+    background: url(../img/banner3.jpg);
+}
+
+.m-s {
+    position: relative;
+}
+
+.m-nav .navswrap {
+    position: absolute;
+    bottom: 10px;
+    text-align: center;
+    width: 50px;
+    left: 50%;
+}
+
+.m-nav .navswrap i {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+}
+
+.m-intro {
+    font-family: "Microsoft YaHei";
+    margin: 90px auto 60px;
+    width: 1270px;
+}
+
+.m-intro .intro {
+    display: inline-block;
+    width: 339px;
+    margin: 0 35px;
+    height: 177px; /*overflow: hidden;*/
+}
+
+.m-intro .intro img {
+    float: left;
+    margin: 8px 20px 100px 0;
+}
+
+.m-intro .intro div {
+    overflow: hidden;
+}
+
+.m-intro .intro div h2 {
+    margin-top: 0;
+    font-weight: normal;
+}
+
+.m-intro .intro div p {
+    font-size: 14px;
+    color: #666;
+    line-height: 24px;
+    text-align: justify;
+}
+
+.m-intro .intro div a {
+    color: #39a030;
+}
+
 /*.m-intro .intro img::after{content: '.';visibility: hidden;overflow: hidden;clear: both;display: block;}*/
 /*.m-intro .intro h2{color: red;}*/
 
-.m-show {margin: 0 auto;height: 224px;padding-top: 2px;white-space: nowrap;overflow: hidden;position: relative;left: 50%;margin-left: -812px;width: 1616px;}
+.m-show {
+    margin: 0 auto;
+    height: 224px;
+    padding-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    /*left: 50%;*/
+    /*margin-left: -812px;*/
+    width: 100%;
+}
+.show-wrap{
+    position: absolute;
+    left: 50%;
+    transform:translateX(-50%);
+}
+
 /*.m-show img{margin-left: -20px;}*/
 
-.m-course {background-color: #f8f8f8;padding-top: 80px;}
-.m-course .coursewrap{margin: 0 auto;overflow: hidden;}
-.m-course .list{float: left;}
-.m-course .list .tab{box-shadow: 0 1px 1px #ccc;font-size: 0;width: 400px;margin-bottom: 10px;}
-.m-course .list .tab  li{background-color: #fff;cursor: pointer;display: inline-block;
-    font: 20px/50px "Microsoft YaHei","Helvetica","sans-serif";
-    height: 50px;list-style: outside none none;text-align: center; width: 200px;}
-.m-course .list .tab .active{color: #fff;background: #39a030;}
-.m-course .list .brief{ margin-left: -10px;}
-.m-course .list .brief .card{
-position: relative;
-width: 225px;
-height: 228px;
-display: inline-block;
-margin: 10px;
-box-shadow: 0 1px 1px #ccc;
-background-color: #fff;}
-.m-course .card img {width: 225px;height: 124px;display: inline-block;}
-.m-course .card span{display: inline-block;border: 1px solid #ddd;border-radius: 2px;color: #999;}
-.m-course .card span i{display: inline-block;width: 10px;height: 10px;
-	background: url('../img/spirit.png') no-repeat scroll -20px -20px;}
-.m-course .card strong{display: block;}
-.m-course .card .cardDetail{position: absolute;z-index: 999;top: 0;left: 0;background: #fff;width: 479px;display: none;padding-top: 10px;padding-left: 10px;}
-.m-course .card:hover .cardDetail{display: block;}
-.m-course .cardDetail h3{font: 18px/20px "微软雅黑";   overflow: hidden; text-overflow: ellipsis;white-space: nowrap;}
-.m-course .card  .courseDetail{padding-left: 10px;display: inline-block;vertical-align: top;width: 215px;}
-.m-course .card .description{margin-top: 20px;overflow: hidden;}
-.m-course  .page{float: right;margin-bottom: 80px;}
-.m-course  .page span{width: 20px;height: 20px;display: inline-block;margin: 0 4px;
-vertical-align: middle;
-text-align: center;
-cursor: pointer;
-color: #666;
-font: 14px/20px 'Microsoft YaHei', 'Helvetica', 'sans-serif';}
-.m-course  .page span:hover{background: #9dd8b1;}
-.m-course  .page .active{color: #9dd8b1;}
-.m-course  .page .prev{cursor: pointer;width: 30px;height: 20px;background: url(../img/spirit.png) -140px -20px no-repeat;vertical-align: middle;}
-.m-course  .page .next{cursor: pointer;width: 30px;height: 20px;background: url(../img/spirit.png) -140px 0 no-repeat;vertical-align: middle;}
-.m-course .aside {float: right;}
-.m-course .aside .insti,.hotrank{box-shadow: 0 1px 1px  #ccc;background: #fff;}
-.m-course .aside  h3{font: 16px/55px 'Microsoft YaHei','Helvetica','sans-serif';font-weight: normal;
-padding-left: 20px;border-bottom: 1px solid #ddd;}
-.m-course .aside .insti div{height: 173px;position: relative;}
-.m-course .aside .insti div p{padding: 20px 0 9px 22px;color: #666;font: 14px/22px 'Microsoft YaHei','Helvetica','sans-serif';}
-.m-course .aside .insti div img{padding:0 23px 0 22px;}
-.m-course .aside .insti div i{display: none;position: absolute;top: 72px;left: 80px;width: 50px;
-height: 50px;background: url(../img/icon2.png) no-repeat;}
-.m-course .aside .hotrank{margin-top: 10px;}
-.m-course .aside .insti div:hover i{display: block;cursor: pointer;}
-.m-course .rankwrap{overflow: hidden;position: relative;height: 700px;}
-.m-course .lRank {margin: 20px 10px 20px 20px;height: 700px;z-index: 99;position: absolute;transition: 1s;top: 0;}
-.m-course .lRank a {display: block;height: 70px;}
-.m-course .rankItem{color: #333;font: 14px/16.8px "微软雅黑";}
+.m-course {
+    background-color: #f8f8f8;
+    padding-top: 80px;
+}
+
+.m-course .coursewrap {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.m-course .list {
+    float: left;
+}
+
+.m-course .list .tab {
+    box-shadow: 0 1px 1px #ccc;
+    font-size: 0;
+    width: 400px;
+    margin-bottom: 10px;
+}
+
+.m-course .list .tab li {
+    background-color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font: 20px/50px "Microsoft YaHei", "Helvetica", "sans-serif";
+    height: 50px;
+    list-style: outside none none;
+    text-align: center;
+    width: 200px;
+}
+
+.m-course .list .tab .active {
+    color: #fff;
+    background: #39a030;
+}
+
+.m-course .list .brief {
+    margin-left: -10px;
+}
+
+.m-course .list .brief .card {
+    position: relative;
+    width: 225px;
+    height: 228px;
+    display: inline-block;
+    margin: 10px;
+    box-shadow: 0 1px 1px #ccc;
+    background-color: #fff;
+}
+
+.m-course .card img {
+    width: 225px;
+    height: 124px;
+    display: inline-block;
+}
+
+.m-course .card span {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #999;
+}
+
+.m-course .card span i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: url('../img/spirit.png') no-repeat scroll -20px -20px;
+}
+
+.m-course .card strong {
+    display: block;
+}
+
+.m-course .card .cardDetail {
+    position: absolute;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background: #fff;
+    width: 479px;
+    display: none;
+    height:100%;
+    overflow: hidden;
+    /*padding-top: 10px;*/
+    /*padding-left: 10px;*/
+}
+
+.m-course .card:hover .cardDetail {
+    display: block;
+}
+
+.m-course .cardDetail h3 {
+    font: 18px/20px "微软雅黑";
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.m-course .card .courseDetail {
+    padding-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    width: 215px;
+}
+
+.m-course .card .description {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.m-course .page {
+    float: right;
+    margin-bottom: 80px;
+}
+
+.m-course .page span {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 0 4px;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    color: #666;
+    font: 14px/20px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+}
+
+.m-course .page span:hover {
+    background: #9dd8b1;
+}
+
+.m-course .page .active {
+    color: #9dd8b1;
+}
+
+.m-course .page .prev {
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    background: url(../img/spirit.png) -140px -20px no-repeat;
+    vertical-align: middle;
+}
+
+.m-course .page .next {
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    background: url(../img/spirit.png) -140px 0 no-repeat;
+    vertical-align: middle;
+}
+
+.m-course .aside {
+    float: right;
+}
+
+.m-course .aside .insti, .hotrank {
+    box-shadow: 0 1px 1px #ccc;
+    background: #fff;
+}
+
+.m-course .aside h3 {
+    font: 16px/55px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+    font-weight: normal;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.m-course .aside .insti div {
+    height: 173px;
+    position: relative;
+}
+
+.m-course .aside .insti div p {
+    padding: 20px 0 9px 22px;
+    color: #666;
+    font: 14px/22px 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+}
+
+.m-course .aside .insti div img {
+    padding: 0 23px 0 22px;
+}
+
+.m-course .aside .insti div i {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 80px;
+    width: 50px;
+    height: 50px;
+    background: url(../img/icon2.png) no-repeat;
+}
+
+.m-course .aside .hotrank {
+    margin-top: 10px;
+}
+
+.m-course .aside .insti div:hover i {
+    display: block;
+    cursor: pointer;
+}
+
+.m-course .rankwrap {
+    overflow: hidden;
+    position: relative;
+    height: 700px;
+}
+
+.m-course .lRank {
+    margin: 20px 10px 20px 20px;
+    height: 700px;
+    z-index: 99;
+    position: absolute;
+    transition: 1s;
+    top: 0;
+}
+
+.m-course .lRank a {
+    display: block;
+    height: 70px;
+}
+
+.m-course .rankItem {
+    color: #333;
+    font: 14px/16.8px "微软雅黑";
+}
+
 /*.m-course .rankItem>img{float: left;}*/
-.m-course .rankDetail{float: right;}
-.m-course .detailtt{width: 121px;overflow: hidden;text-overflow:ellipsis;white-space: nowrap;padding-bottom: 5px;}
-.m-course .rankHot{background: rgba(0, 0, 0, 0) url('../img/spirit.png') no-repeat scroll -20px -20px;
+.m-course .rankDetail {
+    float: right;
+}
+
+.m-course .detailtt {
+    width: 121px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-bottom: 5px;
+}
+
+.m-course .rankHot {
+    background: rgba(0, 0, 0, 0) url('../img/spirit.png') no-repeat scroll -20px -20px;
     color: #999;
     display: inline-block;
     font: 8px/10px "微软雅黑";
     height: 10px;
-    padding-left: 15px;}
+    padding-left: 15px;
+}
 
+.m-playing {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 
+.m-playing .v-wrap {
+    width: 920px;
+    height: 647px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -324px 0 0 -469px;
+    padding-top: 30px;
+    box-sizing: border-box;
+}
 
-.m-playing{width: 100%;height: 100%;background: rgba(0,0,0,0.5);position: fixed;top: 0;bottom: 0;left: 0;right: 0;}
-<<<<<<< HEAD
-.m-playing .v-wrap{width: 920px;height: 647px;background: white;position: absolute;
-	top: 50%;left: 50%;margin: -324px 0 0 -469px;padding-top: 30px;box-sizing: border-box;}
-	.m-playing .v-wrap video{margin: 0 auto;display: block;}
-=======
-.m-playing .v-wrap{width: 920px;height:501px;background: white;position: absolute;
-	top: 50%;left: 50%;margin: -250px 0 0 -469px;padding-top: 30px;}
->>>>>>> 9cf8443009942bf747106dd630635a330076bd7a
-.m-login .v-wrap i{position: absolute;top: 10px;right: 10px;cursor: pointer;display: inline-block;
-	         width: 15px;height: 15px;  background:url(../img/spirit.png) -60px -23px ; }
-.v-wrap > h2{padding-left: 60px;}
-.v-wrap > video{display: block;margin: 0 auto;width: 800px;}
+.m-playing .v-wrap video {
+    margin: 0 auto;
+    display: block;
+}
 
+.m-login .v-wrap i {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(../img/spirit.png) -60px -23px;
+}
 
-.m-footwrap{background: #2c3339;}
-.foot{width: 984px;height: 262px;margin: 0 auto;vertical-align: middle;}
-.logo{}
-.foot .logo h3 {color: #39a030;font: 22px/22px 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica', 'sans-serif';
-		vertical-align: middle;padding-bottom: 30px}
-.logo h3 i{width: 70px;height: 22px;background: url(../img/spirit.png) -60px 0;vertical-align: middle;}
-.touch a i {width: 20px;height: 20px;background: url(../img/spirit.png) -20px 0;}
-.foot div{display: inline-block;padding-top: 90px;}
-.foot div *{color: #fff;/*opacity: 0.6;font-size: 12.5px;*/}
-.foot div a{font-size: 15px;text-decoration: none;}
-.foot div a:hover{text-decoration: underline;}
-.foot div+div{float: right;}
-.foot .connect{padding-right: 80px;}
-.foot .touch{padding-right: 60px;}
+.v-wrap > h2 {
+    padding-left: 60px;
+}
+
+.v-wrap > video {
+    display: block;
+    margin: 0 auto;
+    width: 800px;
+}
+
+.m-footwrap {
+    background: #2c3339;
+}
+
+.foot {
+    width: 984px;
+    height: 262px;
+    margin: 0 auto;
+    vertical-align: middle;
+}
+
+.logo {
+}
+
+.foot .logo h3 {
+    color: #39a030;
+    font: 22px/22px 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica', 'sans-serif';
+    vertical-align: middle;
+    padding-bottom: 30px
+}
+
+.logo h3 i {
+    width: 70px;
+    height: 22px;
+    background: url(../img/spirit.png) -60px 0;
+    vertical-align: middle;
+}
+
+.touch a i {
+    width: 20px;
+    height: 20px;
+    background: url(../img/spirit.png) -20px 0;
+}
+
+.foot div {
+    display: inline-block;
+    padding-top: 90px;
+}
+
+.foot div * {
+    color: #fff; /*opacity: 0.6;font-size: 12.5px;*/
+}
+
+.foot div a {
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.foot div a:hover {
+    text-decoration: underline;
+}
+
+.foot div + div {
+    float: right;
+}
+
+.foot .connect {
+    padding-right: 80px;
+}
+
+.foot .touch {
+    padding-right: 60px;
+}
+
 /*.foot .more{padding-right: 80px;}*/
