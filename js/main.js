@@ -1,162 +1,149 @@
 var $ = function (id) {
         return document.getElementById(id);
 }
-//兼容的写法。弄完再改吧，兼容性再去了解一下。需要做兼容的。css，dom方法，html还没有。
-function getElementsByClassName(root, className) {
-  // 特性侦测
-  if (root.getElementsByClassName) {
-    // 优先使用 W3C 规范接口
-    return root.getElementsByClassName(className);
-  } else {
-    // 获取所有后代节点
-    var elements = root.getElementsByTagName('*');
-    var result = [];
-    var element = null;
-    var classNameStr = null;
-    var flag = null;
 
-    className = className.split(' ');
-
-    // 选择包含 class 的元素
-    for (var i = 0, element; element = elements[i]; i++) {
-      classNameStr = ' ' + element.getAttribute('class') + ' ';
-      flag = true;
-      for (var j = 0, name; name = className[j]; j++) {
-        if (classNameStr.indexOf(' ' + name + ' ') === -1) {
-          flag = false;
-          break;
-        }
-      }
-      if (flag) {
-        result.push(element);
-      }
-    }
-    return result;
-  }
-}
-//设置cookie
-function setCookie(name,value,expires,path,domain,secure) {
-    var cookie = encodeURIComponent(name)+'='+encodeURIComponent(value);
-    if (expires) {cookie+='; expires='+expires.toGMTString();}
-    if (path) {cookie+='; path='+path;}
-    if (domain) {cookie+='; domain='+domain;}
-    if (secure) {cookie+='; secure='+secure;}
-    document.cookie=cookie;
-}
-//查询cookie
-function getCookie() {
-    var cookie = {};
-    var all = document.cookie;
-    if (all === '') {return cookie;}
-    var list = all.split('; ');
-    for (var i = 0,len=list.length; i < len; i++) {
-        var item = list[i];
-        var p=item.indexOf('=');
-        var name = item.substring(0,p);
-        var value = item.substring(p+1);
-        name = decodeURIComponent(name);
-        value =decodeURIComponent(value);
-        cookie[name]=value;
-    }
-    return cookie;
-}
-//删除cookie
-function removeCookie(name,path,domain) {
-
-   setCookie(name,'',new Date(0),path,domain);
-}
-//参数序列化
-function serialize (data) { 
-    if (!data) return '';
-    var pairs = [];
-    for (var name in data){
-        if (!data.hasOwnProperty(name)) continue;
-        if (typeof data[name] === 'function') continue;
-        var value = data[name].toString();
-        name = encodeURIComponent(name);
-        value = encodeURIComponent(value);
-        pairs.push(name + '=' + value);
-    }
-    return pairs.join('&');
-}
- //ajax get 
-function get(url,options,callback){  
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function (){
-        if (xhr.readyState == 4) {
-            if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
-                 callback(xhr.responseText);
-            } else {
-                alert("request failed : " + xhr.status);
+var $cookie = (function () {
+    return {
+        setCookie: function (name, value, expires, path, domain, secure) {
+            var cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
+            if (expires) {
+                cookie += '; expires=' + expires.toGMTString();
             }
+            if (path) {
+                cookie += '; path=' + path;
+            }
+            if (domain) {
+                cookie += '; domain=' + domain;
+            }
+            if (secure) {
+                cookie += '; secure=' + secure;
+            }
+            document.cookie = cookie;
+        },
+        getCookie: function () {
+            var cookie = {};
+            var all = document.cookie;
+            if (all === '') {
+                return cookie;
+            }
+            var list = all.split('; ');
+            for (var i = 0, len = list.length; i < len; i++) {
+                var item = list[i];
+                var p = item.indexOf('=');
+                var name = item.substring(0, p);
+                var value = item.substring(p + 1);
+                name = decodeURIComponent(name);
+                value = decodeURIComponent(value);
+                cookie[name] = value;
+            }
+            return cookie;
+        },
+        removeCookie: function (name, path, domain) {
+
+            $cookie.setCookie(name, '', new Date(0), path, domain);
         }
-    };
-    xhr.open("get",url + "?" + serialize(options),true);
-    xhr.send(null);
-}
-function noteCookie() {
-    var noteCookie = getCookie();
-        var n = $('clno');
-     var m =getElementsByClassName(document,'m-noteInfo')[0]  ;
-
-    if (noteCookie.as) {
-    console.log("get in cookie check function");
-    console.log(noteCookie.as);
-        m.style.display='none';
-        return;
     }
+})();
 
-    n.addEventListener('click',function() {
-        setCookie('as','true');    
-        m.style.display='none';
-        return;  
+var $ajax = (function () {
+    return {
+        //ajax get
+        get: function (url, options, callback) {
+            //参数序列化
+            function serialize(data) {
+                if (!data) return '';
+                var pairs = [];
+                for (var name in data) {
+                    if (!data.hasOwnProperty(name)) continue;
+                    if (typeof data[name] === 'function') continue;
+                    var value = data[name].toString();
+                    name = encodeURIComponent(name);
+                    value = encodeURIComponent(value);
+                    pairs.push(name + '=' + value);
+                }
+                return pairs.join('&');
+            }
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+                    if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
+                        callback(xhr.responseText);
+                    } else {
+                        alert("request failed : " + xhr.status);
+                    }
+                }
+            };
+            xhr.open("get", url + "?" + serialize(options), true);
+            xhr.send(null);
+        }
+    }
+})();
+/* 以上三个不需要依赖的功能性模块 */
+(function () {   //头部通知条的设置  业务模块。。。
+    var noteCookie = $cookie.getCookie();
+    var n = $('clno');
+    var m = document.getElementsByClassName('m-noteInfo')[0];
+    if (noteCookie.as) {
+        console.log("get in cookie check function");
+        console.log(noteCookie.as);
+        // m.style.display = 'none';
+        m.className += "dn";  //要求改类名来切换样式。。。
+        return; // 直接跳出这个iife了。。。。
+    }
+    console.log('sssss');
+    n.addEventListener('click', function () {
+        $cookie.setCookie('as', 'true');
+        m.className += "dn";
+        return;
     });
-}
+})()
 //点击 关注 按钮的事件，弹出登录框，但是想登录框的处理事件分开。再注册一个登录框事件。
-function followed(){
+function followed() {
     var fo = $('follow');
     var fd = $('foed');
-    var cancel=$('cancel');
-    fo.style.display='none';
-    fd.style.display='inline';
-    cancel.onclick=function(){
-    fo.style.display='inline';
-    fd.style.display='none'; 
-    removeCookie('loginSuc');
-    }
+    var cancel = $('cancel');
+    fo.style.display = 'none';
+    fd.style.display = 'inline';
+    cancel.addEventListener('click', function () {
+        fo.style.display = 'inline';
+        fd.style.display = 'none';
+        $cookie.removeCookie('loginSuc');
+    })
 }
 function login() {
 //ajax请求应该分开吗？哪一部分需要分开？虽然这次都是get，参数只需要添加进url就可以。
 //dom方面的关闭登录框业应该抽象出来。 先做出来
     var loginForm = document.forms[0];// body...
-
     var url = 'http://study.163.com/webDev/login.htm';
     var fo = $('follow');
-    var login = getElementsByClassName(document,'m-login')[0];
+    var login = document.getElementsByClassName('m-login')[0];
     var closebtn = $('cllg')
-    fo.onclick=function() {
-        var cookie=getCookie();
-        if (cookie.loginSuc) {followed();}else{
-            login.style.display = 'block'; 
+    fo.onclick = function () {
+        var cookie = $cookie.getCookie();
+        if (cookie.loginSuc) {
+            followed();
+        } else {
+            login.style.display = 'block';
         }
     }
-    closebtn.onclick = function() {
+    closebtn.onclick = function () {
         login.style.display = 'none';
     }
-    $('loginBtn').onclick=function() {
+    $('loginBtn').onclick = function () {
         var name = loginForm.username.value;
         var password = loginForm.password.value;
         var name_md5 = md5(name);
         var password_md5 = md5(password);
-           get(url,{userName:name_md5,password:password_md5},function(x){
-            if (x==1) {
-                login.style.display = 'none'; 
+        $ajax.get(url, {userName: name_md5, password: password_md5}, function (x) {
+            if (x == 1) {
+                login.style.display = 'none';
                 followed();
-                setCookie('loginSuc','true');
-            }else{
-                $('tip').style.display='block'
+                $cookie.setCookie('loginSuc', 'true');
+            } else {
+                $('tip').style.display = 'block'
             }
-    }); 
+        });
     }
 }
 
@@ -225,7 +212,7 @@ function slides(){
 function video() {
     var cVideo=$('cVideo'); 
     var clV = $('clv');
-    var CV = getElementsByClassName(document,'m-playing')[0];
+    var CV = document.getElementsByClassName('m-playing')[0];
     cVideo.onclick=function() {
         CV.style.display='block';
     };
@@ -235,48 +222,50 @@ function video() {
 }
 //热门课程排行
 function hotRank() {
-   get('http://study.163.com/webDev/hotcouresByCategory.htm',{},function(data){
+   $ajax.get('http://study.163.com/webDev/hotcouresByCategory.htm',{},function(data){
     var arr=JSON.parse(data);
-    var oListwrap =getElementsByClassName(document,'lRank')[0];
+    var oListwrap =document.getElementsByClassName('lRank')[0];
     for (var i = 0; i < 20; i++) {
       var oA =document.createElement('a'); 
        oA.innerHTML= '<div class="rankItem"><img src="' + arr[i].smallPhotoUrl + ' "width="50px" height="50px" ><div class="rankDetail"><div class="detailtt">' + arr[i].name + '</div><span class="rankHot">' + arr[i].learnerCount +'</span></div>';
        oListwrap.appendChild(oA);
     }
- }) 
+ })
 }
-function change(){  //热门列表滚动
-  var oListwrap = getElementsByClassName(document,'lRank')[0];
-    var oListbox = getElementsByClassName(document,'hotrank')[0];
+function change() {  //热门列表滚动
+    var oListwrap = document.getElementsByClassName('lRank')[0];
+    var oListbox = document.getElementsByClassName('hotrank')[0];
     var timer;
-        function autoplay(){
-        timer = setInterval(function(){
+
+    var autoplay=function () {
+        timer = setInterval(function () {
             // console.log(window.getComputedStyle(oListwrap).top);
-            if( oListwrap.style.top == '-700px'){
+            if (oListwrap.style.top == '-700px') {
                 oListwrap.style.top = 0;
             }
-            else{
-                oListwrap.style.top = parseFloat(window.getComputedStyle(oListwrap).top)- 70 + 'px';
-                }
-        },5000);
-        }
+            else {
+                oListwrap.style.top = parseFloat(window.getComputedStyle(oListwrap).top) - 70 + 'px';
+            }
+        }, 5000);
+    }
+
+    autoplay();
+    oListbox.onmouseover = function () {
+        clearInterval(timer);
+    };
+    oListbox.onmouseout = function () {
         autoplay();
-    oListbox.onmouseover = function(){
-        clearInterval( timer );
-        };
-    oListbox.onmouseout = function(){
-        autoplay();
-        };
+    };
 }
 //课程列表
 function tab() {
-    var aTabhd = getElementsByClassName(document,'tab');
-    var aTabbtn = getElementsByClassName(document,'btn');
-    var aContent = getElementsByClassName(document,'brief');
-    var aDesign = getElementsByClassName(document,'design');
-    var aLanguage = getElementsByClassName(document,'language'); 
+    var aTabhd = document.getElementsByClassName('tab');
+    var aTabbtn = document.getElementsByClassName('btn');
+    var aContent = document.getElementsByClassName('brief');
+    var aDesign = document.getElementsByClassName('design');
+    var aLanguage = document.getElementsByClassName('language');
     // 点击触发事件嘛，获得当前页码index，再调用当前函数。问题在于页码不止5个。dom的呈现。干脆不实现多个页码。
-    var pager = getElementsByClassName(document,'page')[0];
+    var pager = document.getElementsByClassName('page')[0];
     // var pc=pager.children;
     var currentPage = 1;
     var currentTab = 10;
@@ -284,7 +273,7 @@ function tab() {
 
     //获取服务器数据
     function getData(pageIndex,num,element){
-       get('http://study.163.com/webDev/couresByCategory.htm',{pageNo:pageIndex,psize:20,type:num},function(data){   //设置课程
+       $ajax.get('http://study.163.com/webDev/couresByCategory.htm',{pageNo:pageIndex,psize:20,type:num},function(data){   //设置课程
         var data = JSON.parse(data);
         for( var i=0; i<data.list.length; i++){
             var oTeam = document.createElement('div');
@@ -371,7 +360,7 @@ function tab() {
     //与DOM相关的操作要在页面加载完全之后执行
 window.onload = function () {
         video();
-        noteCookie();//通知条显示初始化
+        // noteCookie();//通知条显示初始化
         login();
         hotRank();
         change();
