@@ -87,7 +87,7 @@ function get(url,options,callback){
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status == 304) {
                  callback(xhr.responseText);
             } else {
-                alert("request failed : " + xhr.status);
+                console.log("request failed : " + xhr.status);
             }
         }
     };
@@ -340,7 +340,7 @@ function tab() {
             if (/prev/.test(des.className)) {currentPage = currentPage-1?currentPage-1:1;}
                 else if (/next/.test(des.className)) {currentPage+=1;}
                     else{ currentPage=parseInt(des.className);}
-                    // alert(currentPage);
+                    // console.log(currentPage);
                     while (currentDiv.firstChild) {//移除所有card，翻页器跟着小姨子跑了卧槽。还得撑开才行。
                         currentDiv.removeChild(currentDiv.firstChild);
                     }
